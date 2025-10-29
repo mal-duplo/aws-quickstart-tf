@@ -1,0 +1,41 @@
+# This file is maintained automatically by "terraform init".
+# Manual edits may be lost in future updates.
+
+provider "registry.terraform.io/duplocloud/duplocloud" {
+  version     = "0.11.27"
+  constraints = "~> 0.11.27"
+  hashes = [
+    "h1:EgVVCBjy4b15B5wF4bgaNgThIkv6YgckHS13nq6xi5I=",
+    "zh:34a1ded3deca6850057b234f3729ae49f3d553c51b683ed78711269387cf1923",
+    "zh:49f772dadd8535e2eb81dc4f6125666a4d6e972220428710bd01bda54a8a057b",
+    "zh:5554641b00777d379e07db296b53eb533c56583dd7af492acf58b78f52f3ae6f",
+    "zh:5af97b23490f1db9b66e7d98f2645bae09dac82da4b95ce428d175715b0f4668",
+    "zh:653325fb368b3cdfce07faf15e4e93ef2a6a11e9bb47310ff430d04f2c2e623c",
+    "zh:8fb5478f7d1d7b6cbd04b62490ad891294cb41f8861e5329b27d5d15150d4002",
+    "zh:a352d1748c434497a82559919c7259dcb4f061d8302ae82a897d7bf3dfd280fc",
+    "zh:bc004f5020369e013cb96a8805f128b7fbdc29ab56588a950ed2f210ba9c187b",
+    "zh:cdfbe175ff4617ce1b0032d398c61ad436f98eeee9da0939c94763ec134d8529",
+    "zh:ce961aa2d8f9d3116f2143a1a365298328134809f6d6e014c41d4d8c23becef4",
+    "zh:ee18bb01917f9883c96fe1631df71bcfe497df595e015fd890ab3889f8fd1080",
+    "zh:f324e04d70bfc5b4de88f13f9e294ed9ad0325d335b328bb7026de095d6e9ef3",
+  ]
+}
+
+provider "registry.terraform.io/hashicorp/null" {
+  version = "3.2.4"
+  hashes = [
+    "h1:L5V05xwp/Gto1leRryuesxjMfgZwjb7oool4WS1UEFQ=",
+    "zh:59f6b52ab4ff35739647f9509ee6d93d7c032985d9f8c6237d1f8a59471bbbe2",
+    "zh:78d5eefdd9e494defcb3c68d282b8f96630502cac21d1ea161f53cfe9bb483b3",
+    "zh:795c897119ff082133150121d39ff26cb5f89a730a2c8c26f3a9c1abf81a9c43",
+    "zh:7b9c7b16f118fbc2b05a983817b8ce2f86df125857966ad356353baf4bff5c0a",
+    "zh:85e33ab43e0e1726e5f97a874b8e24820b6565ff8076523cc2922ba671492991",
+    "zh:9d32ac3619cfc93eb3c4f423492a8e0f79db05fec58e449dee9b2d5873d5f69f",
+    "zh:9e15c3c9dd8e0d1e3731841d44c34571b6c97f5b95e8296a45318b94e5287a6e",
+    "zh:b4c2ab35d1b7696c30b64bf2c0f3a62329107bd1a9121ce70683dec58af19615",
+    "zh:c43723e8cc65bcdf5e0c92581dcbbdcbdcf18b8d2037406a5f2033b1e22de442",
+    "zh:ceb5495d9c31bfb299d246ab333f08c7fb0d67a4f82681fbf47f2a21c3e11ab5",
+    "zh:e171026b3659305c558d9804062762d168f50ba02b88b231d20ec99578a6233f",
+    "zh:ed0fe2acdb61330b01841fa790be00ec6beaac91d41f311fb8254f74eb6a711f",
+  ]
+}
