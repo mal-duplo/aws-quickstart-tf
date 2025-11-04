@@ -1,5 +1,5 @@
 output "infra_name" {
-  value = duplocloud_infrastructure.infra.infra_name
+  value = duplocloud_infrastructure.this.infra_name
 }
 
 output "region" {
