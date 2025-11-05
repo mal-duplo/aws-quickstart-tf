@@ -1,7 +1,8 @@
 output "node_ami" {
-  value = data.aws_ami.eks.id
+  value     = local.asg_ami
+  sensitive = true
 }
 
-output "nodes" {
-  value = duplocloud_asg_profile.nodes
+output "node_ami_description" {
+  value = data.aws_ami.ami.description
 }

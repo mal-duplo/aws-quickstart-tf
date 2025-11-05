@@ -7,7 +7,7 @@ variable "prefix" {
 }
 variable "eks_version" {
   type    = string
-  default = "1.30"
+  default = "1.33"
 }
 variable "az_list" {
   default     = ["a", "b"]

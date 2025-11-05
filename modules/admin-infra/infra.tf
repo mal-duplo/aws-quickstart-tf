@@ -16,7 +16,6 @@ resource "duplocloud_infrastructure" "this" {
 
 resource "duplocloud_infrastructure_setting" "this" {
   count      = var.settings != null ? 1 : 0
-  # was: infra_name = local.name
   infra_name = duplocloud_infrastructure.this.infra_name
 
   dynamic "setting" {
@@ -33,7 +32,6 @@ resource "duplocloud_infrastructure_setting" "this" {
 resource "duplocloud_infrastructure_subnet" "this" {
   for_each   = var.subnets
   name       = each.key
-  # was: infra_name = local.name
   infra_name = duplocloud_infrastructure.this.infra_name
 
   cidr_block = each.value.cidr_block

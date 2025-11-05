@@ -1,5 +1,5 @@
 locals {
-  asg_ami = var.asg_ami != null ? var.asg_ami : data.aws_ami.eks.id
+  asg_ami = var.asg_ami != null ? var.asg_ami : data.aws_ssm_parameter.eks_ami.value
   zones   = ["a", "b", "c", "d", "e", "f", "g", "h"]
   # New zones field accepts ints and null, logic in place to handle either case.
   asg_zones = length(var.az_list) > 0 ? [
@@ -19,36 +19,50 @@ locals {
   ]
 }
 
-# discover the ami
-data "aws_ami" "eks" {
-  most_recent = true
-  owners      = ["amazon"]
-
-  filter {
-    name   = "name"
-    values = ["${var.base_ami_name}-${var.eks_version}-*"]
-  }
-
-  filter {
-    name   = "root-device-type"
-    values = ["ebs"]
-  }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
+# AL2023 EKS-optimized AMI for your control-plane version
+data "aws_ssm_parameter" "eks_ami" {
+  name = "/aws/service/eks/optimized-ami/${var.eks_version}/amazon-linux-2023/x86_64/standard/recommended/image_id"
 }
 
-# AMI data for both queried and manually input
+# Resolve metadata for that AMI id (use filter on image-id)
 data "aws_ami" "ami" {
-  most_recent = true
-
+  owners = ["amazon"]
   filter {
     name   = "image-id"
-    values = [local.asg_ami]
+    values = [data.aws_ssm_parameter.eks_ami.value]
   }
 }
+
+# # discover the ami
+# data "aws_ami" "eks" {
+#   most_recent = true
+#   owners      = ["amazon"]
+
+#   filter {
+#     name   = "name"
+#     values = ["${var.base_ami_name}-${var.eks_version}-*"]
+#   }
+
+#   filter {
+#     name   = "root-device-type"
+#     values = ["ebs"]
+#   }
+
+#   filter {
+#     name   = "virtualization-type"
+#     values = ["hvm"]
+#   }
+# }
+
+# # AMI data for both queried and manually input
+# data "aws_ami" "ami" {
+#   most_recent = true
+
+#   filter {
+#     name   = "image-id"
+#     values = [local.asg_ami]
+#   }
+# }
 
 resource "duplocloud_aws_launch_template_default_version" "name" {
   tenant_id       = var.tenant_id
